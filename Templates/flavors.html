@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="flavors-title">Our Flavors</h2>
+<ul class="flavors-list">
+    {% for flavor in flavors %}
+    <li class="flavor-item">
+        <strong class="flavor-name">{{ flavor[1] }}</strong> 
+        <span class="flavor-description">{{ flavor[2] }}</span><br>
+        <span class="flavor-allergens">Allergens: {{ flavor[3] }}</span>
+        <div class="flavor-actions">
+            <a href="/add_to_cart/{{ flavor[0] }}" class="btn btn-add-to-cart">Add to Cart</a>
+            <a href="/add_allergen/{{ flavor[0] }}" class="btn btn-add-allergen">Add Allergen</a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
